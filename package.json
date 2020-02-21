@@ -1,9 +1,13 @@
 {
   "name": "muji-stylo",
-  "version": "0.1.0-alpha.0",
+  "version": "0.1.0-alpha.1",
   "description": "plain, practical, primitive components",
   "license": "MIT",
-  "private": true,
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "files": [
+    "dist/index.js"
+  ],
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
@@ -12,7 +16,7 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
-    "@types/styled-components": "^4.4.3",
+    "@types/styled-components": "^5.0.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-scripts": "3.4.0",
@@ -33,7 +37,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "muji-build": "yarn rollup --config"
+    "muji-build": "yarn rollup --config",
+    "muji-build:watch": "yarn rollup --config --watch"
   },
   "eslintConfig": {
     "extends": "react-app"
