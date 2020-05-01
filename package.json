@@ -1,6 +1,6 @@
 {
   "name": "muji-stylo",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "plain, practical, primitive components",
   "license": "MIT",
   "main": "dist/index.js",
