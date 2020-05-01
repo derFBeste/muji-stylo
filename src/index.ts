@@ -1,4 +1,7 @@
+import MujiToggle from "./MujiToggle"
+
 import { 
+  MujiButton,
   MujiFetchMsg,
   MujiHealthCheck,
   MujiInput, 
@@ -8,10 +11,12 @@ import {
 } from "./MujiStylo";
 
 export { 
+  MujiButton,
   MujiFetchMsg,
   MujiHealthCheck,
   MujiInput, 
   MujiLine,
   MujiSectionHeader,
-  MujiTile
+  MujiTile,
+  MujiToggle
 };

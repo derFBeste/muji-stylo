@@ -1,5 +1,21 @@
 import styled from "styled-components";
 
+export const MujiButton = styled.button<{ disabled?: boolean }>`
+  background-color: #fff;
+  margin: 0.25rem;
+  min-width: 4rem;
+  border: 1px solid black;
+  padding: 0.25rem 0.5rem;
+  font-weight: 300;
+  letter-spacing: 0.1px;
+  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
+  pointer-events: ${(props) => (props.disabled ? 'none' : 'auto')};
+
+  &:hover {
+    opacity: 0.7;
+  }
+`;
+
 export const MujiFetchMsg = styled.div`
   border: 1px dotted black;
   margin: 0.25rem;
