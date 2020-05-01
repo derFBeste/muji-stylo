@@ -1,6 +1,6 @@
 {
   "name": "muji-stylo",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "plain, practical, primitive components",
   "license": "MIT",
   "main": "dist/index.js",
@@ -25,7 +25,8 @@
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^3.0.0",
-    "rollup": "^1.31.1"
+    "rollup": "^1.31.1",
+    "rollup-plugin-svg": "^2.0.0"
   },
   "peerDependencies": {
     "react": "^16.12.0",
