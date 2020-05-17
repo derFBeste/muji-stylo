@@ -8,11 +8,15 @@ export const MujiButton = styled.button<{ disabled?: boolean }>`
   padding: 0.25rem 0.5rem;
   font-weight: 300;
   letter-spacing: 0.1px;
-  cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
-  pointer-events: ${(props) => (props.disabled ? 'none' : 'auto')};
+  cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
+  pointer-events: ${(props) => (props.disabled ? "none" : "auto")};
 
   &:hover {
     opacity: 0.7;
+  }
+
+  &:focus {
+    outline: #30d430 auto 3px;
   }
 `;
 
@@ -42,9 +46,23 @@ export const MujiSectionHeader = styled.div`
   border-bottom: 1px solid black;
 `;
 
+export const MujiTag = styled.div`
+  margin: 0.25rem;
+  min-width: 3rem;
+  max-width: 6rem;
+  border: 1px solid black;
+  padding: 0rem 0.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  height: 1.75rem;
+`;
+
 export const MujiTile = styled.div`
   letter-spacing: 0.1em;
-  margin: 0.5rem 0.25rem 0rem 0.25rem;
+  margin: 0.25rem;
   width: 9rem;
   height: 7rem;
   display: flex;

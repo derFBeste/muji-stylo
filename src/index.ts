@@ -1,5 +1,3 @@
-import MujiToggle from "./MujiToggle"
-
 import { 
   MujiButton,
   MujiFetchMsg,
@@ -17,6 +15,5 @@ export {
   MujiInput, 
   MujiLine,
   MujiSectionHeader,
-  MujiTile,
-  MujiToggle
+  MujiTile
 };
