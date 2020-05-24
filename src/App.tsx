@@ -1,25 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+
+import "./index.css";
+import { MujiButton, MujiSectionHeader } from "./MujiStylo";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <MujiSectionHeader className="jc">
+        <h1>muji stylo</h1>
+      </MujiSectionHeader>
+      <MujiSectionHeader>
+        <h2>buttons</h2>
+      </MujiSectionHeader>
+      <MujiButton>Push Me</MujiButton>
+    </React.Fragment>
   );
 }
 

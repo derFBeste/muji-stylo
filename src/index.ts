@@ -1,19 +1,21 @@
-import { 
+import {
   MujiButton,
-  MujiFetchMsg,
+  MujiMsgBox,
   MujiHealthCheck,
-  MujiInput, 
+  MujiInput,
   MujiLine,
   MujiSectionHeader,
-  MujiTile 
+  MujiTag,
+  MujiTile,
 } from "./MujiStylo";
 
-export { 
+export {
   MujiButton,
-  MujiFetchMsg,
+  MujiMsgBox,
   MujiHealthCheck,
-  MujiInput, 
+  MujiInput,
   MujiLine,
   MujiSectionHeader,
-  MujiTile
+  MujiTag,
+  MujiTile,
 };

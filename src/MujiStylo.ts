@@ -20,7 +20,7 @@ export const MujiButton = styled.button<{ disabled?: boolean }>`
   }
 `;
 
-export const MujiFetchMsg = styled.div`
+export const MujiMsgBox = styled.div`
   border: 1px dotted black;
   margin: 0.25rem;
   padding: 0.25rem 0.5rem;
