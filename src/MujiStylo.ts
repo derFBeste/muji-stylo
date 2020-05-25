@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
-export const MujiButton = styled.button<{ disabled?: boolean }>`
-  background-color: #fff;
+export const MujiButton = styled.button<{
+  disabled?: boolean;
+  css?: {};
+}>`
   margin: 0.25rem;
   min-width: 4rem;
   border: 1px solid black;
@@ -10,7 +12,6 @@ export const MujiButton = styled.button<{ disabled?: boolean }>`
   letter-spacing: 0.1px;
   cursor: ${(props) => (props.disabled ? "not-allowed" : "pointer")};
   pointer-events: ${(props) => (props.disabled ? "none" : "auto")};
-
   &:hover {
     opacity: 0.7;
   }
@@ -18,35 +19,38 @@ export const MujiButton = styled.button<{ disabled?: boolean }>`
   &:focus {
     outline: #30d430 auto 3px;
   }
+  ${(props) => props.css};
 `;
 
-export const MujiMsgBox = styled.div`
+export const MujiMsgBox = styled.div<{ css?: {} }>`
   border: 1px dotted black;
   margin: 0.25rem;
   padding: 0.25rem 0.5rem;
   width: fit-content;
   display: flex;
   align-items: center;
+  ${(props) => props.css};
 `;
 
-export const MujiInput = styled.input`
+export const MujiInput = styled.input<{ css?: {} }>`
   padding: 0.25rem;
   margin: 0.25rem;
   height: 100%;
   font-weight: 300;
   text-align: right;
+  ${(props) => props.css};
 `;
 
-export const MujiSectionHeader = styled.div`
+export const MujiSectionHeader = styled.div<{ css?: {} }>`
   padding: 0.25rem;
-  height: 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid black;
+  ${(props) => props.css}
 `;
 
-export const MujiTag = styled.div`
+export const MujiTag = styled.div<{ css?: {} }>`
   margin: 0.25rem;
   min-width: 3rem;
   max-width: 6rem;
@@ -57,10 +61,11 @@ export const MujiTag = styled.div`
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  height: 1.75rem;
+  min-height: 1.75rem;
+  ${(props) => props.css};
 `;
 
-export const MujiTile = styled.div`
+export const MujiTile = styled.div<{ css?: {} }>`
   letter-spacing: 0.1em;
   margin: 0.25rem;
   width: 9rem;
@@ -69,9 +74,10 @@ export const MujiTile = styled.div`
   flex-direction: column;
   align-items: center;
   border: 1px solid black;
+  ${(props) => props.css};
 `;
 
-export const MujiLine = styled.div<{ hrz?: boolean }>`
+export const MujiLine = styled.div<{ hrz?: boolean; css?: {} }>`
   ${({ hrz }) =>
     !hrz &&
     `
@@ -85,8 +91,9 @@ export const MujiLine = styled.div<{ hrz?: boolean }>`
     border-right: 1px solid #aaa;
     margin: 0rem 0.25rem;
     `}
+    ${(props) => props.css};
 `;
 
-export const MujiHealthCheck = styled.h1`
+export const MujiHealthCheck = styled.h1<{ css?: {} }>`
   background-color: pink;
 `;
