@@ -1,20 +1,9 @@
-import React from "react";
+import type { Component } from "solid-js";
 
-import "./index.css";
-import { MujiButton, MujiSectionHeader } from "./MujiStylo";
-
-function App() {
+const App: Component = () => {
   return (
-    <React.Fragment>
-      <MujiSectionHeader className="jc">
-        <h1>muji stylo</h1>
-      </MujiSectionHeader>
-      <MujiSectionHeader>
-        <h2>buttons</h2>
-      </MujiSectionHeader>
-      <MujiButton>Push Me</MujiButton>
-    </React.Fragment>
+    <p class="text-4xl text-green-700 text-center py-20">Hello tailwind!</p>
   );
-}
+};
 
 export default App;
