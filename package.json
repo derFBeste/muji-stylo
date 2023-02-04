@@ -2,6 +2,7 @@
   "name": "muji-stylo",
   "version": "0.0.1",
   "description": "plain, practical, primitive components",
+  "author": "Fred Besteman <tech@besteman.net>",
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.js",
