@@ -1,20 +1,16 @@
-import React from "react";
+import type { Component } from "solid-js";
+import { ProtoButtons } from "./components/Button/Button";
 
-import "./index.css";
-import { MujiButton, MujiSectionHeader } from "./MujiStylo";
+// TODO: add prettier setup, tailwinds and solid-js plugin
+// TODO: update readme, solid blazing primitives
 
-function App() {
+const App: Component = () => {
   return (
-    <React.Fragment>
-      <MujiSectionHeader className="jc">
-        <h1>muji stylo</h1>
-      </MujiSectionHeader>
-      <MujiSectionHeader>
-        <h2>buttons</h2>
-      </MujiSectionHeader>
-      <MujiButton>Push Me</MujiButton>
-    </React.Fragment>
+    <>
+      <h1 class="m-2">muji prototypes</h1>
+      <ProtoButtons />
+    </>
   );
-}
+};
 
 export default App;
