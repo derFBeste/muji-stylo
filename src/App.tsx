@@ -1,8 +1,15 @@
 import type { Component } from "solid-js";
+import { ProtoButtons } from "./components/Button/Button";
+
+// TODO: add prettier setup, tailwinds and solid-js plugin
+// TODO: update readme, solid blazing primitives
 
 const App: Component = () => {
   return (
-    <p class="text-4xl text-green-700 text-center py-20">Hello tailwind!</p>
+    <>
+      <h1 class="m-2">muji prototypes</h1>
+      <ProtoButtons />
+    </>
   );
 };
 
