@@ -24,15 +24,28 @@ code {
   --color-success-fg: #1a7f37;
   --color_success-muted: rgba(74, 194, 107, 0.4);
 
-  /* --gray-light
-  --gray-dark
-  --gray-medium */
+  /* colours */
+  /* make a prefix strategy so the vars don't clash with others */
+  --gray-light: #eaeef2;
+  --gray-medium: #afb8c1;
+  --gray-dark: #6e7781;
   --blue: #ddf4ff;
   --green: #aceebb;
-  --orange: #ffd8b5
+  --orange: #ffd8b5;
   --yellow: #fae17d;
   --red: #ffcecb;
+  --purple: #ecd8ff;
 
+  /* borders */
+  --border-radius: 0rem;
+  --border-thickness: 1px;
+
+  /* utils */
+  --light: 80;
+  /* the threshold at which colors are considered "light." Range: integers from 0 to 100,
+recommended 50 - 70 */
+  --threshold: 60;
+  --switch: calc((var(--light) - var(--threshold)) * -100%);
 }
 
 /* var(--color-accent-muted) */
