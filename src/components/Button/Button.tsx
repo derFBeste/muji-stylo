@@ -18,6 +18,7 @@ interface ButtonProps {
     | "secondary";
   // type defaults to outline
   type?: "outline" | "tonal" | "elevated" | "plain" | "alt";
+  disabled?: boolean;
 
   // other possible types: floating action button, icon button, toggle button
   // these would probably be better as separate components
@@ -35,6 +36,7 @@ export const Button: Component<ButtonProps> = (props) => {
 
   return (
     <button
+      disabled={props.disabled}
       class={classes}
       classList={{
         [styles[buttonType]]: Boolean(buttonType),

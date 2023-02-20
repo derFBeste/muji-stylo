@@ -29,12 +29,14 @@ code {
   --gray-light: #eaeef2;
   --gray-medium: #afb8c1;
   --gray-dark: #6e7781;
-  --blue: #ddf4ff;
-  --green: #aceebb;
-  --orange: #ffd8b5;
-  --yellow: #fae17d;
-  --red: #ffcecb;
-  --purple: #ecd8ff;
+
+  /* muted */
+  --blue-muted: #ddf4ff;
+  --green-muted: #aceebb;
+  --orange-muted: #ffd8b5;
+  --yellow-muted: #fae17d;
+  --red-muted: #ffcecb;
+  --purple-muted: #ecd8ff;
 
   /* borders */
   --border-radius: 0rem;
