@@ -16,3 +16,46 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 } */
+
+:root {
+  --color-accent-fg: #0969da;
+  --color-accent-muted: rgba(84, 174, 255, 0.4);
+
+  --color-success-fg: #1a7f37;
+  --color_success-muted: rgba(74, 194, 107, 0.4);
+
+  /* colours */
+  /* make a prefix strategy so the vars don't clash with others */
+  --gray-light: #eaeef2;
+  --gray-medium: #afb8c1;
+  --gray-dark: #6e7781;
+
+  /* muted */
+  --blue-muted: #ddf4ff;
+  --green-muted: #aceebb;
+  --orange-muted: #ffd8b5;
+  --yellow-muted: #fae17d;
+  --red-muted: #ffcecb;
+  --purple-muted: #ecd8ff;
+
+  /* borders */
+  --border-radius: 0rem;
+  --border-thickness: 1px;
+
+  /* utils */
+  --light: 80;
+  /* the threshold at which colors are considered "light." Range: integers from 0 to 100,
+recommended 50 - 70 */
+  --threshold: 60;
+  --switch: calc((var(--light) - var(--threshold)) * -100%);
+}
+
+/* var(--color-accent-muted) */
+/* var(--color-accent-fg) */
+/* var(--color-success-fg) */
+
+/* var(--color-neutral-emphasis)
+#6e7781 */
+
+/* var(--color-neutral-muted)
+rgba(175,184,193,0.2) */

@@ -1,21 +1,87 @@
 import { Component, JSXElement } from "solid-js";
+import styles from "./button.module.css";
+
+type Variant = "primary" | "secondary" | "positive" | "negative" | "neutral";
 
 interface ButtonProps {
+  // TODO: sx or style?
   children: JSXElement;
+  onClick: () => void;
   class?: string;
-  // style?: any;
-  // variant: any;
-  type?: "outline" | "solid" | "tonal" | "elevated";
+  variant?:
+    | "attention"
+    | "info"
+    | "negative"
+    | "neutral"
+    | "positive"
+    | "primary"
+    | "secondary";
+  // type defaults to outline
+  type?: "outline" | "tonal" | "elevated" | "plain" | "alt";
+  disabled?: boolean;
+
   // other possible types: floating action button, icon button, toggle button
   // these would probably be better as separate components
 }
 
-const TWButton: Component<ButtonProps> = (props) => {
+export const Button: Component<ButtonProps> = (props) => {
+  let classes = styles.plain;
+
+  if (props.class) {
+    classes += " " + props.class;
+  }
+
+  const buttonType = props.type || "outline";
+  const buttonVariant = props.variant;
+
+  return (
+    <button
+      disabled={props.disabled}
+      class={classes}
+      classList={{
+        [styles[buttonType]]: Boolean(buttonType),
+        // [styles.tonal]: props.type === "tonal",
+        // [styles.solid]: props.type === "solid" || !props.type,
+        [styles[buttonVariant]]: Boolean(buttonVariant),
+        // [styles.primaryBorder]: props.variant === "primary",
+      }}
+      onClick={props.onClick}
+    >
+      {props.children}
+    </button>
+  );
+};
+
+// Do color pairs like GH? https://primer.style/design/foundations/color
+// They use a background and foreground color that compliment each other.
+// GH: colors: https://primer.style/primitives/colors
+
+// fonts: Segoe, SF Mono, Roboto
+
+// requirements:
+// TODO: tonal as a boolean prop
+// TODO: hover states
+// TODO: tonal, elevated
+// TODO: allow user to set their type of default button?
+
+// questions:
+// TODO: need alt and secondary? Let user set their own?
+// TODO: secondary inversion of primary? Darker version?
+// TODO: plain or outline as default?
+// TODO: switch variant and type?
+// TODO: how to enumerate props on hover in vscode?
+// TODO: what should focus styles be: nothing? outline? ring?
+// TODO: are splitProps helpful at all?
+
+// solid has white font, tonal has complementary color font
+// or should tonal be a variant?
+// types are for desing of button variant for color
+
+// TODO: change outline border type and font color depending on variant
+
+export const TWButton: Component<ButtonProps> = (props) => {
   let classes =
     "py-2 px-4 bg-gray-400 text-white rounded-lg shadow-md hover:bg-gray-500";
-
-  //TODO: what should focus styles be: nothing? outline? ring?
-
   // let classes =
   // "py-2 px-4 bg-gray-400 text-white rounded-lg shadow-md hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-75";
 
@@ -24,20 +90,4 @@ const TWButton: Component<ButtonProps> = (props) => {
   }
 
   return <button class={classes}>{props.children}</button>;
-};
-
-const Button: Component<ButtonProps> = (props) => {
-  return <button class="">{props.children}</button>;
-};
-
-export const ProtoButtons: Component = () => {
-  return (
-    <div>
-      <div class="m-2 flex flex-row">
-        <Button>push me</Button>
-        <TWButton class="m-2">push me</TWButton>
-        <TWButton>push me</TWButton>
-      </div>
-    </div>
-  );
 };
