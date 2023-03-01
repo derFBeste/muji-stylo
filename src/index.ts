@@ -1,21 +1,3 @@
-import {
-  MujiButton,
-  MujiMsgBox,
-  MujiHealthCheck,
-  MujiInput,
-  MujiLine,
-  MujiSectionHeader,
-  MujiTag,
-  MujiTile,
-} from "./MujiStylo";
+import { Button } from "./components/Button/Button";
 
-export {
-  MujiButton,
-  MujiMsgBox,
-  MujiHealthCheck,
-  MujiInput,
-  MujiLine,
-  MujiSectionHeader,
-  MujiTag,
-  MujiTile,
-};
+export { Button };

@@ -12,13 +12,18 @@
   ],
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build:lib": "rollup --config",
+    "build:tsup": "tsup",
+    "build:watch": "rollup --config --watch",
+    "build:demo": "vite build",
     "serve": "vite preview",
     "lint": "tsc",
-    "test": "vitest",
+    "test": "vitest --watch=false",
+    "test:watch": "vitest",
     "test:coverage": "vitest run --coverage"
   },
   "devDependencies": {
+    "@rollup/plugin-typescript": "^11.0.0",
     "@solidjs/testing-library": "^0.6.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@vitest/coverage-c8": "^0.28.5",
@@ -27,6 +32,10 @@
     "postcss": "^8.4.20",
     "prettier": "^2.8.3",
     "prettier-plugin-tailwindcss": "^0.2.2",
+    "rollup": "^3.17.2",
+    "rollup-plugin-css-only": "^4.3.0",
+    "rollup-plugin-import-css": "^3.1.0",
+    "rollup-preset-solid": "^2.0.1",
     "tailwindcss": "^3.2.4",
     "typescript": "^4.9.4",
     "vite": "^4.0.3",
@@ -36,16 +45,5 @@
   "dependencies": {
     "solid-js": "^1.6.6"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+  "browserslist": {}
 }
