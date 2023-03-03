@@ -1,5 +1,12 @@
 name: Code Checks
-on: [push]
+# on: [push]
+on:
+  push:
+    branches:
+      - "ci-test/**"
+  pull_request:
+    branches: [main, dev]
+    types: [opened, synchronize, reopened]
 jobs:
   Code-Checks:
     runs-on: ubuntu-latest
