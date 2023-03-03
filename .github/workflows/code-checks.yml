@@ -1,0 +1,27 @@
+name: Code Checks
+on: [push]
+jobs:
+  Code-Checks:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 Triggered by a ${{ github.event_name }} event."
+      - run: echo "🐧 Running on a ${{ runner.os }} server."
+      - run: echo "🔎 Branch ${{ github.ref }} from ${{ github.repository }} repo."
+
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.13.x
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Linting code...
+        run: npm run lint
+
+      - name: Testing code...
+        run: npm run test
