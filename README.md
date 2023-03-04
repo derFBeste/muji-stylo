@@ -1,6 +1,6 @@
 ### muji-stylo: plain, practical, primitive components
 
-A collection of plain but nicely styled basic React components. Use as is or easily customize with your own styles.
+Primitive SolidJS components. Use as is or easily customize with your own styles.
 
 ### Warning
 
