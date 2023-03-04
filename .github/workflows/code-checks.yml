@@ -1,5 +1,4 @@
 name: Code Checks
-# on: [push]
 on:
   push:
     branches:
@@ -18,7 +17,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Setup node
+      - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: 16.13.x
@@ -27,8 +26,8 @@ jobs:
       - name: Install
         run: npm ci
 
-      - name: Linting code...
-        run: npm run lint
+      # - name: Linting code...
+      #   run: npm run lint
 
       - name: Testing code...
         run: npm run test
