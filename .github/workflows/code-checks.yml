@@ -17,17 +17,21 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 7
+      # TODO: use matrix to test on multiple versions of node
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: 16.13.x
-          cache: npm
+          cache: pnpm
 
       - name: Install
-        run: npm ci
+        run: pnpm install
 
       - name: Linting code...
-        run: npm run lint
+        run: pnpm lint
 
       - name: Running tests...
-        run: npm run test
+        run: pnpm test
