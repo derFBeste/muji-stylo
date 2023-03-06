@@ -3,7 +3,7 @@ import styles from "./button.module.css";
 
 type Variant = "primary" | "secondary" | "positive" | "negative" | "neutral";
 
-interface ButtonProps {
+interface Button {
   // TODO: sx or style?
   children: JSXElement;
   onClick: () => void;
@@ -24,7 +24,7 @@ interface ButtonProps {
   // these would probably be better as separate components
 }
 
-export const Button: Component<ButtonProps> = (props) => {
+export const Button: Component<Button> = (props) => {
   let classes = styles.plain;
 
   if (props.class) {
@@ -79,7 +79,7 @@ export const Button: Component<ButtonProps> = (props) => {
 
 // TODO: change outline border type and font color depending on variant
 
-export const TWButton: Component<ButtonProps> = (props) => {
+export const TWButton: Component<Button> = (props) => {
   let classes =
     "py-2 px-4 bg-gray-400 text-white rounded-lg shadow-md hover:bg-gray-500";
   // let classes =
