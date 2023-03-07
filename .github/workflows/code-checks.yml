@@ -3,11 +3,12 @@ on:
   push:
     branches:
       - "ci-check/**"
+      - "release/**"
   pull_request:
     branches: [main, dev]
     types: [opened, synchronize, reopened]
 jobs:
-  Code-Checks:
+  Setup:
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 Triggered by a ${{ github.event_name }} event."
@@ -30,8 +31,10 @@ jobs:
       - name: Install
         run: pnpm install
 
-      - name: Linting code...
-        run: pnpm lint
+  Lint:
+    - name: Linting code...
+      run: pnpm lint
 
-      - name: Running tests...
-        run: pnpm test
+  Test:
+    - name: Running tests...
+      run: pnpm test

@@ -3,12 +3,13 @@ on:
   push:
     branches:
       - "ci-dev/**"
-  pull_request:
+  pull_request_target:
     branches: [dev]
-    # types: [deleted]
+    types: [closed]
 
 jobs:
-  Code-Checks:
+  dev-release:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 Triggered by a ${{ github.event_name }} event."
@@ -31,8 +32,12 @@ jobs:
       - name: Install
         run: pnpm install
 
-      - name: Linting code...
-        run: pnpm lint
+      - name: Bump version...
+        run: pnpm version prerelease --preid dev
 
-      - name: Running tests...
-        run: pnpm test
+      - name: Committing version...
+        # need to tag?
+        # run: git commit -am "Bump version"
+
+      - name: Publish to npm...
+        run: pnpm publish --tag dev
