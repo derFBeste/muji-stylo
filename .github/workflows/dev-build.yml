@@ -1,3 +1,5 @@
+# On PR close to dev, publish to npm with and version
+# with format: 0.0.0-dev.0
 name: Dev Release
 on:
   push:
@@ -35,9 +37,11 @@ jobs:
       - name: Bump version...
         run: pnpm version prerelease --preid dev
 
-      - name: Committing version...
-        # need to tag?
-        # run: git commit -am "Bump version"
+      # - name: Committing version...
+      # need to tag?
+      # run: git commit -am "Bump version"
 
       - name: Publish to npm...
-        run: pnpm publish --tag dev
+        run: pnpm publish # need? --tag dev
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
