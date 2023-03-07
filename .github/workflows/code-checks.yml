@@ -8,7 +8,7 @@ on:
     branches: [main, dev]
     types: [opened, synchronize, reopened]
 jobs:
-  Setup:
+  Code-Checks:
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 Triggered by a ${{ github.event_name }} event."
@@ -31,10 +31,8 @@ jobs:
       - name: Install
         run: pnpm install
 
-  Lint:
-    - name: Linting code...
-      run: pnpm lint
+      - name: Linting code...
+        run: pnpm lint
 
-  Test:
-    - name: Running tests...
-      run: pnpm test
+      - name: Running tests...
+        run: pnpm test

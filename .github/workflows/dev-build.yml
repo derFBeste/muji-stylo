@@ -11,7 +11,7 @@ on:
 
 jobs:
   dev-release:
-    if: github.event.pull_request.merged == true
+    # if: github.event.pull_request.merged == true || github.branch == 'ci-dev/**'
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 Triggered by a ${{ github.event_name }} event."
