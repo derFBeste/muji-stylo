@@ -35,13 +35,20 @@ jobs:
         run: pnpm install
 
       - name: Bump version...
-        run: pnpm version prerelease --preid dev
+        # with:
+        #   github-token: ${{ secrets.GITHUB_TOKEN }}
+        # env:
+        #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --local user.email "$GITHUB_ACTOR@users.noreply.github.com"
+          git config --local user.name "$GITHUB_ACTOR"
+          pnpm version prerelease --preid dev
+          git push --follow-tags
 
       # - name: Committing version...
-      # need to tag?
-      # run: git commit -am "Bump version"
+      #   run: git commit -am "Bump version"
 
       - name: Publish to npm...
-        run: pnpm publish # need? --tag dev
+        run: pnpm publish --publish-branch=ci-dev/test-workflow # need? --tag dev
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
