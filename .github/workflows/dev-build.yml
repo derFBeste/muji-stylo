@@ -16,7 +16,7 @@ jobs:
     steps:
       - run: echo "🎉 Triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 Running on a ${{ runner.os }} server."
-      - run: echo "🔎 Branch ${{ github.ref }} from ${{ github.repository }} repo."
+      - run: echo "🔎 Branch ${{ github.ref }} from ${{ github.repository }}."" repo."
 
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -49,6 +49,6 @@ jobs:
       #   run: git commit -am "Bump version"
 
       - name: Publish to npm...
-        run: pnpm publish --publish-branch=ci-dev/test-workflow # need? --tag dev
+        run: pnpm publish --publish-branch=${{ github.repository }} # need? --tag dev
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
