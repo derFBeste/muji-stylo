@@ -1,6 +1,6 @@
 import { render, screen } from "@solidjs/testing-library";
 import { Button } from "./Button";
-import { describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, it } from "vitest";
 import "@testing-library/jest-dom";
 
 describe("Button", () => {

@@ -1,13 +1,13 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
+    "target": "ESnext",
+    "module": "ESnext",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
-    "types": ["vite/client"],
+    "types": ["vite/client", "vitest/globals", "@types/testing-library__jest-dom"],
     "noEmit": true,
     "isolatedModules": true,
     "sourceMap": true,

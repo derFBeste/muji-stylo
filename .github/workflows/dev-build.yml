@@ -1,4 +1,4 @@
-# On PR close to dev, publish to npm with and version
+# On PR close to dev, publish to npm and version
 # with format: 0.0.0-dev.0
 name: Dev Release
 on:
@@ -11,12 +11,13 @@ on:
 
 jobs:
   dev-release:
-    # if: github.event.pull_request.merged == true || github.branch == 'ci-dev/**'
+    if: github.event.pull_request.merged == true || github.branch == 'ci-dev/**'
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🎉 Triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 Running on a ${{ runner.os }} server."
-      - run: echo "🔎 Branch ${{ github.ref }} from ${{ github.repository }}."" repo."
+      - name: Workflow info
+        - run: echo "Triggered by a ${{ github.event_name }} event."
+        - run: echo "🐧 Running on a ${{ runner.os }} server."
+        - run: echo "🔎 Branch ${{ github.ref }} from ${{ github.repository }}."" repo."
 
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -29,24 +30,17 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16.13.x
-          cache: pnpm
+          # cache: pnpm # 
 
       - name: Install
         run: pnpm install
 
       - name: Bump version...
-        # with:
-        #   github-token: ${{ secrets.GITHUB_TOKEN }}
-        # env:
-        #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config --local user.email "$GITHUB_ACTOR@users.noreply.github.com"
           git config --local user.name "$GITHUB_ACTOR"
           pnpm version prerelease --preid dev
           git push --follow-tags
-
-      # - name: Committing version...
-      #   run: git commit -am "Bump version"
 
       - name: Publish to npm...
         run: pnpm publish --publish-branch=${{ github.ref_name }} # need? --tag dev
