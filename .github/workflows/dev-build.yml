@@ -49,6 +49,6 @@ jobs:
       #   run: git commit -am "Bump version"
 
       - name: Publish to npm...
-        run: pnpm publish --publish-branch=${{ github.repository }} # need? --tag dev
+        run: pnpm publish --publish-branch=${{ github.ref_name }} # need? --tag dev
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
