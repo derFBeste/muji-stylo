@@ -15,9 +15,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Workflow info
-        - run: echo "Triggered by a ${{ github.event_name }} event."
-        - run: echo "🐧 Running on a ${{ runner.os }} server."
-        - run: echo "🔎 Branch ${{ github.ref }} from ${{ github.repository }}."" repo."
+        run: |
+          echo "Runner: ${{ github.event_name }}"
+          echo "Server OS ${{ runner.os }}"
+          echo "Branch ${{ github.ref }} from ${{ github.repository }}."" repo."
 
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -30,7 +31,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16.13.x
-          # cache: pnpm # 
+          # cache: pnpm #
 
       - name: Install
         run: pnpm install
@@ -43,6 +44,6 @@ jobs:
           git push --follow-tags
 
       - name: Publish to npm...
-        run: pnpm publish --publish-branch=${{ github.ref_name }} # need? --tag dev
+        run: pnpm publish --publish-branch=${{ github.ref_name }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

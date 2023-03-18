@@ -11,9 +11,11 @@ jobs:
   Code-Checks:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🎉 Triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 Running on a ${{ runner.os }} server."
-      - run: echo "🔎 Branch ${{ github.ref }} from ${{ github.repository }} repo."
+      - name: Workflow info
+        run: |
+          echo "Runner: ${{ github.event_name }}"
+          echo "Server OS ${{ runner.os }}"
+          echo "Branch ${{ github.ref }} from ${{ github.repository }}."" repo."
 
       - name: Checkout repo
         uses: actions/checkout@v3
